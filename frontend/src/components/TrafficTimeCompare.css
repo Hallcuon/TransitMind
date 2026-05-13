@@ -1,0 +1,75 @@
+.traffic-time-compare {
+  font-size: 0.78rem;
+}
+
+.traffic-time-compare__delay {
+  margin: 0 0 0.65rem;
+  font-weight: 700;
+  color: #fde68a;
+}
+
+.traffic-time-compare__fallback {
+  margin: 0 0 0.5rem;
+  color: #cbd5e1;
+  font-weight: 600;
+}
+
+.traffic-time-compare__bars {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.traffic-time-compare__row {
+  display: grid;
+  grid-template-columns: minmax(0, 5.5rem) 1fr auto;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.traffic-time-compare__label {
+  color: #94a3b8;
+  font-size: 0.68rem;
+  line-height: 1.2;
+}
+
+.traffic-time-compare__track {
+  height: 8px;
+  border-radius: 4px;
+  background: rgba(51, 65, 85, 0.65);
+  overflow: hidden;
+}
+
+.traffic-time-compare__fill {
+  height: 100%;
+  border-radius: 4px;
+  min-width: 4px;
+  transition: width 0.35s ease;
+}
+
+.traffic-time-compare__fill--free {
+  background: linear-gradient(90deg, #64748b, #94a3b8);
+}
+
+.traffic-time-compare__fill--hist {
+  background: linear-gradient(90deg, #6366f1, #a5b4fc);
+}
+
+.traffic-time-compare__fill--live {
+  background: linear-gradient(90deg, #10b981, #34d399);
+}
+
+.traffic-time-compare__val {
+  font-variant-numeric: tabular-nums;
+  color: #e2e8f0;
+  font-weight: 600;
+  font-size: 0.72rem;
+  text-align: right;
+}
+
+.traffic-time-compare__note {
+  margin: 0.65rem 0 0;
+  font-size: 0.68rem;
+  line-height: 1.45;
+  color: #64748b;
+}

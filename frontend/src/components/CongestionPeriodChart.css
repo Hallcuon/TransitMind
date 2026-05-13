@@ -1,0 +1,108 @@
+.congestion-chart {
+  margin-top: 0.35rem;
+}
+
+.congestion-chart__lead {
+  margin: 0 0 0.55rem;
+  font-size: 0.68rem;
+  line-height: 1.45;
+  color: #64748b;
+}
+
+.congestion-chart__svg {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.congestion-chart__grid-bg {
+  fill: rgba(30, 41, 59, 0.45);
+  stroke: rgba(71, 85, 105, 0.35);
+}
+
+.congestion-chart__bar {
+  fill: rgba(99, 102, 241, 0.55);
+  transition: fill 0.2s ease;
+}
+
+.congestion-chart__bar--peak {
+  fill: rgba(245, 158, 11, 0.85);
+  stroke: rgba(251, 191, 36, 0.5);
+  stroke-width: 1;
+}
+
+.congestion-chart__line {
+  stroke: rgba(52, 211, 153, 0.95);
+  opacity: 0.95;
+}
+
+.congestion-chart__dot {
+  fill: #34d399;
+  stroke: rgba(15, 23, 42, 0.9);
+  stroke-width: 1;
+}
+
+.congestion-chart__tick {
+  fill: #94a3b8;
+  font-size: 8px;
+  font-weight: 700;
+}
+
+.congestion-chart__val {
+  fill: #e2e8f0;
+  font-size: 8px;
+  font-weight: 800;
+}
+
+.congestion-chart__legend {
+  list-style: none;
+  margin: 0.55rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-size: 0.7rem;
+}
+
+.congestion-chart__legend li {
+  display: grid;
+  grid-template-columns: 2.8rem 1fr auto auto;
+  gap: 0.35rem;
+  align-items: center;
+  color: #cbd5e1;
+}
+
+.congestion-chart__legend-time {
+  font-variant-numeric: tabular-nums;
+  font-weight: 800;
+  color: #94a3b8;
+}
+
+.congestion-chart__legend-title {
+  color: #e2e8f0;
+}
+
+.congestion-chart__legend-min {
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  color: #a5b4fc;
+  text-align: right;
+}
+
+.congestion-chart__peak-pill {
+  font-size: 0.58rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #fde68a;
+  white-space: nowrap;
+}
+
+.congestion-chart__peak-note {
+  margin: 0.55rem 0 0;
+  font-size: 0.72rem;
+  line-height: 1.45;
+  color: #fde68a;
+  font-weight: 600;
+}

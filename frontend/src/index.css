@@ -1,0 +1,258 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --nav-height: 54px;
+  /* Neon magenta / purple (reference UI) */
+  --primary: #ff2d95;
+  --primary-light: #ff6eb5;
+  --secondary: #d400ff;
+  --success: #4CD964;
+  --warning: #FF9500;
+  --danger: #FF3B30;
+
+  --bg-primary: #0a0a0c;
+  --bg-secondary: #121018;
+  --bg-tertiary: #18141f;
+  --text-primary: #fafafa;
+  --text-secondary: #b4adbf;
+  --text-tertiary: #7a7389;
+  --border: rgba(255, 255, 255, 0.08);
+
+  --neon-pink: #ff007f;
+  --neon-magenta: #ff2d95;
+  --neon-purple: #d400ff;
+  --tm-accent: var(--neon-magenta);
+  --tm-accent-soft: rgba(255, 0, 127, 0.12);
+  --tm-violet: #c084fc;
+  --tm-violet-soft: rgba(212, 0, 255, 0.1);
+  --tm-page-bg:
+    radial-gradient(ellipse 90% 55% at 15% 10%, rgba(255, 0, 127, 0.2), transparent 55%),
+    radial-gradient(ellipse 70% 50% at 90% 15%, rgba(212, 0, 255, 0.16), transparent 50%),
+    radial-gradient(ellipse 60% 45% at 50% 100%, rgba(255, 45, 149, 0.1), transparent 50%),
+    linear-gradient(180deg, #0a0a0c 0%, #0c0a10 40%, #08060c 100%);
+  --tm-glass: rgba(20, 16, 32, 0.55);
+  --tm-glass-border: rgba(255, 255, 255, 0.08);
+  --tm-glow-pink: 0 0 40px rgba(255, 0, 127, 0.35);
+  --tm-radius-lg: 16px;
+  --tm-radius-xl: 24px;
+  --tm-radius-pill: 9999px;
+  --tm-shadow: 0 24px 64px rgba(0, 0, 0, 0.65);
+
+  --gradient-primary: linear-gradient(135deg, #ff007f 0%, #d400ff 100%);
+  --gradient-success: linear-gradient(135deg, #4CD964 0%, #34C759 100%);
+  --gradient-warning: linear-gradient(135deg, #FF9500 0%, #FF7A00 100%);
+
+  font-family:
+    'Inter',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    sans-serif;
+  line-height: 1.6;
+  font-weight: 400;
+
+  color-scheme: dark;
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Glass panel (profile, auth, leaderboard, messages, …) */
+.tm-profile-card {
+  background: var(--tm-glass);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid var(--tm-glass-border);
+  border-radius: var(--tm-radius-xl);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+/* Fill viewport under html/body so App + routes get remaining height */
+#root > * {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background-color: var(--bg-primary);
+  background-image: var(--tm-page-bg);
+  background-attachment: fixed;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.2;
+  margin: 0;
+  font-weight: 600;
+}
+
+h1 { font-size: 2rem; letter-spacing: -0.5px; }
+h2 { font-size: 1.5rem; letter-spacing: -0.3px; }
+h3 { font-size: 1.25rem; }
+h4 { font-size: 1.1rem; }
+
+a {
+  font-weight: 500;
+  color: var(--primary);
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+a:hover {
+  opacity: 0.8;
+}
+
+/* Smooth transitions and animations */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes shimmer {
+  0% { background-position: -1000px 0; }
+  100% { background-position: 1000px 0; }
+}
+
+/* Utility classes */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.card-modern {
+  background: var(--bg-secondary);
+  border-radius: 16px;
+  padding: 16px;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  border: 1px solid var(--border);
+}
+
+.card-modern:hover {
+  background: rgba(255, 0, 127, 0.06);
+  transform: translateY(-4px);
+  border-color: rgba(255, 0, 127, 0.25);
+  box-shadow: var(--tm-glow-pink);
+}
+
+.btn-primary {
+  background: var(--gradient-primary);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--tm-radius-pill);
+  padding: 12px 28px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: var(--tm-glow-pink);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.08);
+  box-shadow: 0 0 48px rgba(255, 0, 127, 0.45);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+  opacity: 0.9;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #667eea;
+  color: white;
+  cursor: pointer;
+  transition: all 0.25s;
+}
+
+button:hover {
+  background-color: #764ba2;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+input, textarea, select {
+  font-family: inherit;
+  font-size: 1em;
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+  transition: all 0.3s ease;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: #667eea;
+  background: rgba(102, 126, 234, 0.1);
+}
+

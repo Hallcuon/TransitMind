@@ -1,0 +1,360 @@
+.session-page {
+  position: relative;
+  width: 100%;
+  flex: 1;
+  min-height: 0;
+  height: 100%;
+  background: var(--bg-primary);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.session-page.fullscreen {
+  min-height: unset;
+  height: 100%;
+}
+
+/* Fullscreen Map */
+.map-fullscreen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: auto;
+}
+
+.map-fullscreen :global(.leaflet-container) {
+  width: 100%;
+  height: 100%;
+  pointer-events: auto;
+}
+
+/* UI Overlays */
+.ui-overlay {
+  position: absolute;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  pointer-events: auto;
+}
+
+/* Top Overlay - Header */
+.top-overlay {
+  top: 1rem;
+  left: 1rem;
+  right: auto;
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-width: 300px;
+  animation: slideInDown 0.4s ease;
+}
+
+.header-block {
+  flex: 1;
+}
+
+.header-block h1 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #f3f4f6;
+}
+
+.header-block .session-status {
+  display: block;
+  margin: 0.2rem 0 0 0;
+  font-size: 0.75rem;
+  color: #9ca3af;
+}
+
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Leave Button */
+.btn-leave {
+  padding: 0.5rem 1rem;
+  background: #ef4444;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-weight: 600;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  width: 100%;
+}
+
+.btn-leave.compact {
+  width: auto;
+  min-width: 110px;
+  padding: 0.45rem 0.85rem;
+  font-size: 0.75rem;
+}
+
+.btn-leave:hover {
+  background: #dc2626;
+  transform: translateY(-1px);
+}
+
+.btn-leave:active {
+  transform: translateY(0);
+}
+
+/* Top-center compact widget */
+.top-center-overlay {
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(520px, calc(100vw - 2rem));
+  padding: 0.65rem 0.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  animation: slideInDown 0.35s ease;
+  box-sizing: border-box;
+  pointer-events: auto;
+}
+
+/* Timer Section */
+.timer-section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.timer-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.45rem 0.55rem;
+  background: rgba(55, 65, 81, 0.5);
+  border: 1px solid rgba(75, 85, 99, 0.4);
+  border-radius: 6px;
+  font-size: 0.72rem;
+  min-width: 145px;
+  flex: 1;
+}
+
+.timer-label {
+  color: #9ca3af;
+  font-weight: 500;
+}
+
+.timer-value {
+  color: #10b981;
+  font-weight: 700;
+  font-family: 'Monaco', 'Courier New', monospace;
+}
+
+.session-widget-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.context-toggles {
+  display: flex;
+  gap: 0.35rem;
+}
+
+.context-toggle {
+  border: 1px solid rgba(75, 85, 99, 0.6);
+  background: rgba(31, 41, 55, 0.7);
+  color: #cbd5e1;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.3rem 0.55rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.context-toggle.active {
+  color: #ecfdf5;
+  border-color: rgba(16, 185, 129, 0.9);
+  background: rgba(16, 185, 129, 0.22);
+}
+
+.route-context-overlay {
+  top: 5.5rem;
+  right: 1rem;
+  left: auto;
+  transform: none;
+  width: min(320px, calc(100vw - 2rem));
+  padding: 0.55rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.context-card {
+  background: rgba(17, 24, 39, 0.72);
+  border: 1px solid rgba(75, 85, 99, 0.5);
+  border-radius: 8px;
+  padding: 0.45rem 0.5rem;
+  min-height: 62px;
+}
+
+.context-title {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #f8fafc;
+  margin-bottom: 0.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.context-line {
+  font-size: 0.68rem;
+  color: #cbd5e1;
+  line-height: 1.35;
+}
+
+/* Scrollbar styling */
+.top-center-overlay::-webkit-scrollbar,
+.route-context-overlay::-webkit-scrollbar {
+  width: 4px;
+}
+
+.top-center-overlay::-webkit-scrollbar-track,
+.route-context-overlay::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.top-center-overlay::-webkit-scrollbar-thumb,
+.route-context-overlay::-webkit-scrollbar-thumb {
+  background: rgba(75, 85, 99, 0.6);
+  border-radius: 2px;
+}
+
+.top-center-overlay::-webkit-scrollbar-thumb:hover,
+.route-context-overlay::-webkit-scrollbar-thumb:hover {
+  background: rgba(75, 85, 99, 0.8);
+}
+
+/* Session Error */
+.session-error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  flex: 1;
+  min-height: 0;
+  font-size: 1rem;
+  text-align: center;
+  background: var(--bg-primary);
+  color: #ef4444;
+  padding: 2rem;
+}
+
+/* Loading */
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  flex: 1;
+  min-height: 0;
+  background: var(--bg-primary);
+  color: #9ca3af;
+  font-size: 1rem;
+}
+
+.error {
+  color: #ef4444;
+  padding: 1rem;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid #ef4444;
+  border-radius: 6px;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .top-overlay {
+    width: calc(100vw - 2rem);
+    left: 1rem;
+    right: 1rem;
+    min-width: auto;
+  }
+
+  .top-center-overlay {
+    width: calc(100vw - 1rem);
+    top: 0.75rem;
+    padding: 0.6rem;
+  }
+
+  .timer-section {
+    gap: 0.4rem;
+  }
+
+  .timer-item {
+    min-width: 100%;
+    justify-content: space-between;
+  }
+
+  .session-widget-footer {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .context-toggles {
+    justify-content: center;
+  }
+
+  .session-widget-participants {
+    text-align: center;
+  }
+
+  .btn-leave.compact {
+    width: 100%;
+  }
+
+  .route-context-overlay {
+    width: calc(100vw - 1rem);
+    top: 12.6rem;
+    left: 0.5rem;
+    right: 0.5rem;
+  }
+
+  .header-block h1 {
+    font-size: 1rem;
+  }
+
+  .btn-leave {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.7rem;
+  }
+}

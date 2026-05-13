@@ -1,0 +1,227 @@
+/* User position marker pulse animation */
+.user-position-marker {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    r: 10px;
+    opacity: 1;
+  }
+  50% {
+    r: 15px;
+    opacity: 0.7;
+  }
+  100% {
+    r: 10px;
+    opacity: 1;
+  }
+}
+
+#map-container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Soft charcoal while tiles load — matches Esri Dark Gray canvas (not OLED black) */
+.leaflet-container {
+  background: #3a3a3a !important;
+}
+
+/* Hide Leaflet Routing Machine info panels */
+.leaflet-routing-hidden {
+  display: none !important;
+}
+
+.leaflet-routing-container {
+  display: none !important;
+}
+
+.leaflet-routing-summary {
+  display: none !important;
+}
+
+.leaflet-routing-alt {
+  display: none !important;
+}
+
+.leaflet-routing-alt-0 {
+  display: none !important;
+}
+
+/* Hide the routing instructions list */
+.leaflet-routing-instructions {
+  display: none !important;
+}
+
+/* Hide waypoints selector */
+.leaflet-routing-add-waypoints {
+  display: none !important;
+}
+
+/* Style route lines for better visibility */
+.leaflet-interactive {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Train routes - green solid line */
+.leaflet-routing-alt {
+  stroke: #10b981 !important;
+  stroke-width: 5 !important;
+  stroke-opacity: 0.95 !important;
+  fill: none;
+}
+
+/* Hide all Leaflet control panels that might be white */
+.leaflet-control-container {
+  z-index: 5;
+  pointer-events: auto;
+}
+
+.leaflet-control {
+  background: rgba(0, 0, 0, 0.8) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 8px !important;
+}
+
+.leaflet-control a {
+  color: #ffffff !important;
+}
+
+.leaflet-control a:hover {
+  background-color: rgba(0, 122, 255, 0.2) !important;
+}
+
+/* Hide/Style attribution to not be white */
+.leaflet-attribution {
+  background: rgba(0, 0, 0, 0.7) !important;
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.leaflet-attribution a {
+  color: rgba(100, 200, 255, 0.9) !important;
+}
+
+/* Ensure popup text is visible */
+.leaflet-popup-content {
+  color: #000000;
+}
+
+.leaflet-popup-content-wrapper {
+  background: #ffffff;
+  border-radius: 8px;
+}
+
+/* City hover widget (time + weather) */
+.city-hover-tooltip-container {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.city-hover-tooltip {
+  background: rgba(0, 0, 0, 0.82);
+  color: #e5e7eb;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  padding: 0.45rem 0.6rem;
+  font-size: 0.78rem;
+  line-height: 1.25;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  white-space: nowrap;
+}
+
+.leaflet-tooltip.city-hover-tooltip-container::before {
+  border-top-color: rgba(0, 0, 0, 0.82) !important;
+}
+
+/* Hide the routing machine entire control UI, but keep the lines drawn on map */
+.leaflet-routing-control {
+  display: none !important;
+}
+
+.leaflet-routing-panel {
+  display: none !important;
+}
+
+/* Ensure SVG routes/lines stay visible */
+.leaflet-overlay-pane svg {
+  z-index: 6;
+}
+
+.leaflet-overlay-pane path {
+  pointer-events: auto;
+}
+
+/* Numbered stop markers (Routes page) */
+.stop-marker {
+  background: transparent;
+  border: none;
+}
+
+.stop-marker-badge {
+  width: 26px;
+  height: 26px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+  font-size: 0.8rem;
+  color: #0b1220;
+  border: 2px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
+}
+
+.stop-marker-badge.start {
+  background: #34d399;
+}
+
+.stop-marker-badge.mid {
+  background: #93c5fd;
+}
+
+.stop-marker-badge.end {
+  background: #fca5a5;
+}
+
+/* Layer toggle — localized labels via i18n */
+.map-layer-toggle {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: 1000;
+  padding: 0.65rem 1rem;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.88rem;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  color: #f8fafc;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(8, 10, 18, 0.82);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.45);
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.15s ease;
+}
+
+.map-layer-toggle:hover {
+  background: rgba(24, 16, 36, 0.92);
+  border-color: rgba(255, 0, 127, 0.45);
+  transform: translateY(-1px);
+  box-shadow: 0 0 24px rgba(255, 0, 127, 0.15);
+}
+
+.map-layer-toggle--satellite-active {
+  border-color: rgba(255, 45, 149, 0.55);
+  background: linear-gradient(135deg, rgba(255, 0, 127, 0.55), rgba(212, 0, 255, 0.45));
+}
+
+.map-layer-toggle--satellite-active:hover {
+  background: linear-gradient(135deg, rgba(255, 0, 127, 0.65), rgba(212, 0, 255, 0.55));
+}
