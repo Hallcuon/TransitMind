@@ -10,18 +10,10 @@
 
 
 
-
 - Фронтенд: [http://localhost:5173](http://localhost:5173)  
 - Бекенд: [http://localhost:3001](http://localhost:3001) · `GET /api/health`
 
-Детальніше: [docs/GETTING_STARTED.md](docs/GETTING_STARTED.md), налаштування БД: [docs/DATABASE_SETUP.md](docs/DATABASE_SETUP.md).
 
-## Змінні середовища
-
-| Файл | Призначення |
-|------|-------------|
-| `backend/.env` | Скопіюй з `backend/.env.example`: `PORT`, `DB_*`, опційно `TOMTOM_API_KEY`. |
-| `frontend/.env` | Опційно `VITE_API_URL` (за замовчуванням API очікується на `http://localhost:3001`). |
 
 
 ## Структура
